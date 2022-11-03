@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top rated"]
+    let sectionTitles: [String] = ["Trending Movies", "Trending TV", "Popular", "Upcoming Movies", "Top rated"]
     
     
     private let homeFeedTable: UITableView = {
@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
+        
+        getTrendingMovies()
         }
     
     private func configureNavbar() {
@@ -48,6 +50,16 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     
+    private func getTrendingMovies() {
+        APICaller.shared.getTrendingMoives { results in
+            switch results {
+            case .success(let movies):
+                print(movies)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 
 
 
@@ -89,7 +101,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         hearder.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         hearder.textLabel?.frame = CGRect(x: hearder.bounds.origin.x + 20, y: hearder.bounds.origin.y, width: 100, height: hearder.bounds.height)
         hearder.textLabel?.textColor = .white
-        hearder.textLabel?.text = hearder.textLabel?.text?.lowercased()
+        hearder.textLabel?.text = hearder.textLabel?.text?.capitalizeFirstLetter()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
