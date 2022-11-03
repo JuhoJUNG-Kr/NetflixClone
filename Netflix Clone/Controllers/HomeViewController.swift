@@ -9,6 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top rated"]
+    
+    
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
@@ -53,7 +56,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 20
+        return sectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,6 +78,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let hearder = view as? UITableViewHeaderFooterView else { return }
+        hearder.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        hearder.textLabel?.frame = CGRect(x: hearder.bounds.origin.x + 20, y: hearder.bounds.origin.y, width: 100, height: hearder.bounds.height)
+        hearder.textLabel?.textColor = .white
+        hearder.textLabel?.text = hearder.textLabel?.text?.lowercased()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
