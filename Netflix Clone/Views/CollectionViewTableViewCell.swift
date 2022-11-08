@@ -65,7 +65,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
             return UICollectionViewCell()
             
         }
-        cell.comfigure(with: model)
+        cell.configure(with: model)
         
         return cell
     }
