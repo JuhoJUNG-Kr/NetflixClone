@@ -36,10 +36,8 @@ class HomeViewController: UIViewController {
         
         configureNavbar()
         
-        let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
-        
-
         }
     
     private func configureNavbar() {
@@ -78,6 +76,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
             
         }
+        
+        cell.delegate = self
+        
         switch indexPath.section {
         case Section.TrendingMovies.rawValue:
             APICaller.shared.getTrendingMoives { results in
@@ -158,4 +159,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+}
+
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = TitlePreviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+
+    }
 }
