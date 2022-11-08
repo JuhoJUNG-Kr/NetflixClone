@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct Storage {
+    static let YoutubeAPI_KEY = "AIzaSyAxXRpAWpZuEpYT3Eouuy-KDGN6sJjYuRI"
+}

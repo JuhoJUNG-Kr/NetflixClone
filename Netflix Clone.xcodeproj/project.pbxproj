@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B3117B0291AE9F4005AB81E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3117AF291AE9F4005AB81E /* Storage.swift */; };
 		5B3271CA291AA3010080480B /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3271C9291AA3010080480B /* SearchResultsViewController.swift */; };
 		5B3271CE291ACF6E0080480B /* YoutubeSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3271CD291ACF6E0080480B /* YoutubeSearchResponse.swift */; };
 		5B3271D0291AD38F0080480B /* TitlePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3271CF291AD38F0080480B /* TitlePreviewViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B3117AF291AE9F4005AB81E /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		5B3271C9291AA3010080480B /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		5B3271CD291ACF6E0080480B /* YoutubeSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeSearchResponse.swift; sourceTree = "<group>"; };
 		5B3271CF291AD38F0080480B /* TitlePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				5B52199529141BBA00B94346 /* APICaller.swift */,
+				5B3117AF291AE9F4005AB81E /* Storage.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				5BE017D82912CF3E006CADE0 /* HeroHeaderUIView.swift in Sources */,
 				5BB497BF2912B741008D8214 /* DownloadsViewController.swift in Sources */,
 				5BB497A42912B53C008D8214 /* AppDelegate.swift in Sources */,
+				5B3117B0291AE9F4005AB81E /* Storage.swift in Sources */,
 				5B3271CA291AA3010080480B /* SearchResultsViewController.swift in Sources */,
 				5B52199A29142D3800B94346 /* Extensions.swift in Sources */,
 				5B3271CE291ACF6E0080480B /* YoutubeSearchResponse.swift in Sources */,
