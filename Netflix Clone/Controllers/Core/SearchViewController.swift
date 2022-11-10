@@ -18,12 +18,12 @@ class SearchViewController: UIViewController {
     }()
     
     private let searchController: UISearchController = {
-       let controller = UISearchController(searchResultsController: SearchResultsViewController())
+        let controller = UISearchController(searchResultsController: SearchResultsViewController())
         controller.searchBar.placeholder = "Search for Movie or a Tv show"
         controller.searchBar.searchBarStyle = .minimal
         return controller
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search"
@@ -45,7 +45,7 @@ class SearchViewController: UIViewController {
         super.viewDidLayoutSubviews()
         discoverTable.frame = view.bounds
     }
-
+    
     private func fetchDiscoverMovies() {
         APICaller.shared.getDiscoverMovies { [weak self] result in
             switch result {
@@ -59,8 +59,8 @@ class SearchViewController: UIViewController {
             }
         }
     }
-
-
+    
+    
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {

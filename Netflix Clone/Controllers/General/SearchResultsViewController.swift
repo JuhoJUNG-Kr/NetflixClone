@@ -40,7 +40,7 @@ class SearchResultsViewController: UIViewController {
         searchResultsCollectionView.frame = view.bounds
     }
     
-
+    
 }
 
 extension SearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -70,7 +70,7 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
                 print(error.localizedDescription)
             }
         }
-
+        
     }
     
     

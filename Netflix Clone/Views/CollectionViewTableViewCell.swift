@@ -12,7 +12,7 @@ protocol CollectionViewTableViewCellDelegate: AnyObject {
 }
 
 class CollectionViewTableViewCell: UITableViewCell {
-
+    
     static let identifier = "CollectionViewTableViewCell"
     
     weak var delegate: CollectionViewTableViewCellDelegate?
@@ -55,7 +55,14 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
     
     private func downloadTitleAt(indexPath: IndexPath) {
-        print("Downloading \(titles[indexPath.row].original_title)")
+        DataPresistenceManager.shard.downloadTitleWith(model: titles[indexPath.row]) { result in
+            switch result {
+            case .success():
+                NotificationCenter.default.post(name: NSNotification.Name("Downloaded"), object: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }

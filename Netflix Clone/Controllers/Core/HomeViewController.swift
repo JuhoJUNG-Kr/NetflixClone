@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
         
         headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
-        }
+    }
     
     private func configureHeroHeaderView() {
         APICaller.shared.getTrendingMoives { [weak self] result in
@@ -73,8 +73,8 @@ class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds
     }
     
-
-
+    
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -185,6 +185,6 @@ extension HomeViewController: CollectionViewTableViewCellDelegate {
             vc.configure(with: viewModel)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
-
+        
     }
 }
